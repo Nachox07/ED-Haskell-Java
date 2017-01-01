@@ -17,6 +17,5 @@ cabal.sandbox.config
 *.eventlog
 .stack-work/
 cabal.project.local
-DataStructures/
 murcielago/
 amasa/
