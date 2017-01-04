@@ -60,11 +60,19 @@ delMin (Node _ _ lh rh)  = merge lh rh
 
 -- recursively merges smallest subheaps. Achieves O(log n) complexity
 merge :: (Ord a) => Heap a -> Heap a -> Heap a
-merge a Empty = a
-merge Empty b = b
-merge a b
-    | minElem a <= minElem b = join a b
-    | otherwise              = join b a
+merge h Empty = h
+merge Empty h' = h'
+merge h@(Node n size hl hr) h'@(Node n' size' _ _) = 
+  if n < n' || (n == n' && size <= size')
+  then 
+    if heapSize hl < heapSize hr
+    then Node n (size + size') (merge hl h') hr
+    else Node n (size + size') hl (merge hr h')
+  else merge h' h
+    where
+      heapSize :: (Ord a) => Heap a -> Int
+      heapSize Empty = 0
+      heapSize (Node _ size _ _) = size
 
 ----------------------------------------------------------
 -- ^^^^^^^^^^^^^^-- SOLO TOCAR ARRIBA ^^^^^^^^^^^ --------
