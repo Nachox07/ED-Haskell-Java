@@ -1,14 +1,3 @@
--------------------------------------------------------------------------------
--- Estructuras de Datos. 2º Curso. ETSI Informática. UMA
---
--- PRACTICA 6. Ejercicio 8 de la cuarta relación (montículos maxifóbicos en Haskel)
---
--- Alumno: APELLIDOS, NOMBRE
--------------------------------------------------------------------------------
-
--- Solo tienes que completar el código de la función 'merge' de acuerdo con
--- las explicaciones del enunciado.
-
 module MaxiphobicHeap
   ( Heap
   , empty
